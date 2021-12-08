@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=N8FBmB2jme8&t=39s
+
+angular 7
+class binding
+class attribute 
+or
+class binding []
+a regular class attribute becomes dummy if both are used
+
+to use multiple classes [ngClass] ="object"
+
+to associate and de-associate classes with html elements
+
+project
+namaste component test.ts

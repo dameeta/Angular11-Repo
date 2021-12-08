@@ -1,0 +1,61 @@
+PIpes
+
+
+16)strings
+numbers
+% pipe
+currency pipe
+specifying currecny for a country
+IAS currecny codes
+Date pipe
+short date format
+
+__________
+17)Services 
+displaying static data
+What is a service
+Purpose of using a service
+The need for Dependency injection
+
+18)Dependency injection
+Code without DI and its drawbacks
+DI as a design pattern
+DI as a framework
+
+19) using a service
+cli command for creating a service
+creating and using a service
+Injectable decorator
+20)HTTP and observables
+Http Mechanism
+Observables and their purpose
+Overview of  RxJs
+
+21)Demo on fetching data using http
+
+22)Http Errorhandling
+
+
+23)Routing in ANgular
+Purpose of routing
+Steps to implement routing
+Demo on routing
+
+24)Wild Card Routes and Redirecting Routes
+* wild card
+Configuring a default route
+possible values for pathMatch
+25)
+Route parameters
+Confuring route parameters
+Reading route parameters by using the activated route service
+using the ParamMap observable
+
+26)Optional route parameters
+
+	
+
+29)CHild routes
+
+
+

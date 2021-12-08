@@ -1,0 +1,31 @@
+1)Create  folders namely store/reducers
+2)In reducers folder create a file namely appreducer.ts
+import {ACTION_SIGNOUT} from './actionconst'
+interface appReducerState
+{
+login:boolean
+}
+
+const initialState:appReducerState=
+{
+login:false,
+userName:"Lata"
+
+}
+
+export function reducer(state=initialstate, action)
+{
+switch(action.type)
+{
+case ACTION_SIGNOUT:
+{
+return 
+{
+...state,
+login:false
+}
+
+}
+________
+actionconst.ts
+

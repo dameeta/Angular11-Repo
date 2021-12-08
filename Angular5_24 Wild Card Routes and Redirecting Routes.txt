@@ -1,0 +1,56 @@
+Wild Card Routes and Redirecting Routes
+
+25) https://www.youtube.com/watch?v=QC6wRxXT26I
+
+* wild card router to a page not found component
+
+Configuring a default route
+possible values for pathMatch
+
+demo
+1)creating a pagnotfound component
+
+ng g c pagenotefound it is
+
+g for generate, c for component
+
+
+in the app-routing.module
+add one more route to the array in the end
+
+const routes: Routes = 
+[
+  {path:"suppliers", component: SuppliermasterComponent},
+  {path:"orders", component: OrdermasterComponent},
+{path:"**", component: PagenotfoundComponent}
+];
+
+complete the imports
+import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
+
+export const routingcomponents = [SuppliermasterComponent,OrdermasterComponent, PagenotfoundComponent ];
+______
+
+execute and test the application
+http://loclal
+________
+try 
+http://localhost:4200
+
+configuring a default route
+
+const routes: Routes = 
+[
+  {path:"", redirectTo:"suppliers",pathMatch:'full' },
+  
+{path:"suppliers", component: SuppliermasterComponent},
+ 
+ {path:"orders", component: OrdermasterComponent},
+
+{path:"**", component: PagenotfoundComponent}
+];
+
+_________
+
+pathMatch is a prefix we direct to departments path is  suppliers and component pagenotfound for all urls . This is a problem
+pathMath=full: if the full url is empty http://localhost:4200

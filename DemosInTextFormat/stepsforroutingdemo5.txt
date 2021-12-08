@@ -1,0 +1,76 @@
+RoutingDemo CHild routes
+
+step 1: 
+create three components
+
+ng g c shopkeeper -it -is
+ng g c customer1 -it -is
+ng g c customer2 -it -is
+
+step 2
+In app-routing.module 
+in the const routes array
+
+const routes: Routes =[
+  
+{path:'shopkeeper', component:ShopkeeperComponent,
+  children:
+   [
+  {path:'customer1', component: Customer1Component} , 
+    {path:'customer2',component: Customer2Component}
+
+]
+  }
+do the necessary imports
+
+___________
+step 3
+
+In the template of shopkeeper component
+template:
+<h2>Shopkeeper</h2>
+<router-outlet></router-outlet>
+
+step 4
+verify
+
+In the template of app.component.html
+<router-outlet></router-outlet>
+
+step 5 (checkpoint)
+http://localhost:4200/shopkeeper
+http://localhost:4200/shopkeeper/customer1
+http://localhost:4200/shopkeeper/customer2
+
+
+step 6
+In shopkeeper component
+import { ActivatedRoute, Router} from '@angular/router';
+ template: 
+`
+<h2>Shopkeeper</h2>
+
+   <button (click)= "cust1()">Customer1</button>
+   <br>
+    <button (click)= "cust2()">Customer2</button>
+
+    
+    <router-outlet></router-outlet>
+  `,
+
+constructor(private ar:ActivatedRoute, private r:Router) { }
+
+cust1()
+{
+this.r.navigate(['customer1'], {relativeTo:this.ar});
+
+}
+
+cust2()
+{
+this.r.navigate(['customer2'], {relativeTo:this.ar});
+
+}
+
+7)http://localhost:4200/shopkeeper
+

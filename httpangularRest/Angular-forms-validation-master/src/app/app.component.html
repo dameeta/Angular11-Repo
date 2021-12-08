@@ -1,0 +1,112 @@
+<div
+  class="row justify-content-center align-items-center"
+  style="height:50vh; width:100%; padding: 0;"
+>
+  <div class="col-12 pt-5">
+    <!-- <h3 *ngIf="message">{{ message }}</h3> -->
+    <form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()">
+      <div
+        class="row p-0 justify-content-center align-items-center"
+        style="min-height:50vh; width:100%; padding: 0;"
+      >
+        <div class="col-7 mb-2">
+          <label>FullName</label> <br />
+          <input
+            style="width: 100%;"
+            type="text"
+            formControlName="FullName"
+            placeholder=""
+            name="FullName"
+            autocomplete="off"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; registrationForm.controls.FullName.errors }"
+          />
+          <div
+            *ngIf="submitted &amp;&amp; registrationForm.controls.FullName.errors"
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.controls.FullName.errors.required">
+              FullName is required
+            </div>
+          </div>
+        </div>
+        <div class="col-7 mb-2">
+          <label>Email</label> <br />
+          <input
+            style="width: 100%;"
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder=""
+            name="email"
+            autocomplete="off"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp;
+                      registrationForm.controls.email.errors }"
+          />
+          <div
+            *ngIf="submitted &amp;&amp; registrationForm.controls.email.errors"
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.controls.email.errors.required">
+              Email is required
+            </div>
+            <div *ngIf="registrationForm.controls.email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="col-7 mb-2">
+          <label>Telephone</label> <br />
+          <input
+            style="width: 100%;"
+            type="text"
+            formControlName="phone"
+            placeholder=""
+            name="phone"
+            autocomplete="off"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; registrationForm.controls.phone.errors }"
+          />
+          <div
+            *ngIf="submitted &amp;&amp; registrationForm.controls.phone.errors"
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.controls.phone.errors.required">
+              phone is required
+            </div>
+          </div>
+        </div>
+        <div class="col-7 mb-2">
+          <label>password</label> <br />
+          <input
+            style="width: 100%;"
+            type="password"
+            formControlName="password"
+            placeholder=""
+            name="password"
+            autocomplete="off"
+            [ngClass]="{ 'is-invalid': submitted &amp;&amp; registrationForm.controls.password.errors }"
+          />
+          <div
+            *ngIf="submitted &amp;&amp; registrationForm.controls.password.errors"
+            class="text-danger"
+          >
+            <div *ngIf="registrationForm.controls.password.errors.required">
+              Password is required
+            </div>
+            <div *ngIf="registrationForm.controls.password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center box">
+        <button>
+          Create
+          <!-- <span *ngIf="loading">Add</span> -->
+          <div *ngIf="loading" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

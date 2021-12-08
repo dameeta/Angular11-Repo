@@ -1,0 +1,11 @@
+New features in angular 5
+ build optimiser which removed unnecessary code from applications 
+Angular Universal State Transfer API and DOM Support
+The Angular compiler has been improved to support incremental compilation
+Increased standardisation across browsers
+A new HttpClient
+Multiple names are supported for components and directives
+A lifecycle events router 
+ReflectiveInjector has been replaced with the StaticInjector, reducing application size for most developers
+CLI 1.5 will create Angular 5 projects by default
+The RxJS reactive programming library has been updated to version 5.5.2 or later to eliminate the side effects of code-splitting

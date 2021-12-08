@@ -1,0 +1,23 @@
+Angular is a framework for building client side applications
+Great for SPAs
+Modular Approach
+re-usable code
+development quicker and easier
+unit testable
+Google+Microsoft
+2010 - Angular js
+2016 Angular version 2
+2016 Dec Angular version 3
+2017 Nov Angular version 5
+__________
+Google team has decided that it will update angular twice a year and stick to semantic versioning
+
+Semantic versioning
+
+Version 1.2.3
+major.minor.fix (patch)
+patch : bug fix
+minor: when there are added features
+that do not break any functionality
+Major: when there is a break in any of the functionalities
+About this series

@@ -1,0 +1,27 @@
+https://www.youtube.com/watch?v=BGy8DdGw_WE
+
+Component iteraction
+
+using the input decorator the child can accept data from the parent
+
+using the output decorator the child will send out events to the parent to give data
+
+In the test component
+
+@Input() public parentData; //any one will work
+
+@Input ('parentData') public data; // if we want to use a different name
+___
+parent component
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app';
+  public name ="Swadhyaya";
+}
+
+_________
+$event contains the data ABC, access to the argument

@@ -1,0 +1,146 @@
+parameters with route
+1)routeparamMaster component
+routeparamDetail component
+
+2)routerparamMastercomponent.ts
+import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+@Component({
+  selector: 'app-routerparam-master',
+  template: `<h2>Product Master:Paramerters in routing</h2>
+  <ul *ngFor="let p of products">
+    <li (click)="displaydetails(p)">
+{{p.productid}} {{p.productname}}
+  </li>
+  </ul>`,
+  styles: []
+})
+export class RouterparamMasterComponent implements OnInit {
+
+  public products=
+  [
+    {productid:1, productname:"Marker", price:30},
+    {productid:2, productname:"pencil", price:10},
+    {productid:3, productname:"pen", price:20},
+    {productid:4, productname:"white board", price:40},
+     
+    ]
+  constructor(private r : Router) { }
+
+  ngOnInit() {
+  }
+displaydetails(product)
+{
+this.r.navigate(['/productdetail', product.productid]]);
+}
+}
+
+
+___________
+
+3)RouterParamdetailcomponent.ts
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router'
+
+@Component({
+  selector: 'app-routerparam-detail',
+  template: '<h2>Product  details for {{productid}}</h2>',
+  styles: []
+})
+export class RouterparamDetailComponent implements OnInit {
+
+  public productid;
+constructor(private _r : ActivatedRoute)  
+{
+  let id=parseInt(this._r.snapshot.paramMap.get('id'));
+this.productid=id;
+
+}
+
+  ngOnInit() {
+  }
+
+}
+
+_______
+4)app-routing.ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {OrdermasterComponent} from './ordermaster/Ordermaster.component';
+import {SuppliermasterComponent} from './suppliermaster/suppliermaster.component';
+import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
+import {RouterparamMasterComponent} from './routerparam-master/routerparam-master.component';
+import {RouterparamDetailComponent} from './routerparam-detail/routerparam-detail.component';
+const routes: Routes = 
+[
+  {path:"", redirectTo:"suppliers",pathMatch:'full' },
+  {path:"suppliers", component: SuppliermasterComponent},
+  {path:"orders", component: OrdermasterComponent},
+  {path:"productmaster", component: RouterparamMasterComponent},
+  {path:"productdetail/:id", component: RouterparamDetailComponent},
+{path:"**", component: PagenotfoundComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+export const routingcomponents = [SuppliermasterComponent,OrdermasterComponent, PagenotfoundComponent, RouterparamMasterComponent, RouterparamDetailComponent ];
+
+__________
+5)app.component.html
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+  <a routerLink="/suppliers" routerLinkActive="classactive">Suppliers</a>
+  <a routerLink="/orders">orders</a>
+  
+<router-outlet></router-outlet>
+
+_________
+6)app.module
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+import {routingcomponents} from './app-routing.module';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { RouterparamMasterComponent } from './routerparam-master/routerparam-master.component';
+import { RouterparamDetailComponent } from './routerparam-detail/routerparam-detail.component';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    routingcomponents,
+    PagenotfoundComponent,
+    RouterparamMasterComponent,
+    RouterparamDetailComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+_______
+7)app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app';
+}

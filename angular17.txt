@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=BGy8DdGw_WE
+
+17
+Services
+with static data in components
+violation of programming concepts
+DRY (Do not repeat yourself)
+Single reponsiblity principle : the component class should have only one responsibility i.e. to control view logic. But it is also creating data for the view.
+___________
+A service is a class with a specific purpose
+The purpose of a service
+Share data
+Implement application logic
+External interaction
+The need for Dependency injection for implementing a service
+
+Naming convention
+.service.ts
+
+

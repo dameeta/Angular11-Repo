@@ -1,0 +1,6 @@
+
+Angular pipes
+
+Pipes allow us to transform data before displaying them on the view
+predefined examples
+

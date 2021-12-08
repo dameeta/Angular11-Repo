@@ -1,0 +1,120 @@
+Demo 4
+
+Routing with parameters
+1)Create 2 components
+
+ng g c allproducts -is -it
+ng g c specificproduct -is -it
+_______________
+step 2
+in the app-routing.module
+update the routes array
+AppROuting-module
+
+const routes: Routes = 
+[
+  
+ ..
+{path:"allproducts", component:AllproductsComponent},
+{path:"myproduct/:id", component:SpecificproductComponent}
+]
+
+export const routingcomponents = [Demo1CreateComponent,Demo1DisplayallComponent,Demo2allproductsComponent,Demo2specificproductComponent]
+_______________
+
+Step 3
+Checkpoint
+http://localhost:4200/allproducts
+http://localhost:4200/myproduct/1
+
+____________
+
+
+Step 4 AllProductscomponent
+import { Component, OnInit } from '@angular/core';
+import {Router, Route} from '@angular/router';
+
+@Component({
+  selector: 'app-allproducts',
+  template: `
+  <ul  *ngFor="let x of products">
+  <li>{{x.productname}} has an id {{x.productid}} : <button (click)= "displaydetails(x.productid)">Details</button>
+  </li>
+</ul>
+
+  `,
+  styles: [
+  ]
+})
+export class AllproductsComponent implements OnInit {
+
+  public products = 
+  [
+{productid:1, productname:"mobile"},
+{productid:2, productname:"cosmetics"},
+{productid:3, productname:"laptops"},
+{productid:4, productname:"bags"}
+
+
+  ]
+  displaydetails(pid:any)
+  {
+this.router.navigate(['myproduct', pid]);
+}
+constructor (private router: Router) {}
+
+
+
+  ngOnInit(): void {
+  }
+
+}
+__________
+Step 5
+SpecificProductComponent
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router, Routes} from '@angular/router';
+
+@Component({
+  selector: 'app-specificproduct',
+  template: `
+  <h2>You selected product with id {{productid}}</h2>
+  
+  <a (click)="previousrecord()">Previous Product</a>
+<a (click)="nextrecord()">Next Product</a>
+
+  `,
+  styles: [
+  ]
+})
+export class SpecificproductComponent implements OnInit {
+
+
+
+  public productid:any;
+  constructor (private route: ActivatedRoute, private router:Router){}
+  ngOnInit()
+{
+
+let id= this.route.snapshot.paramMap.get('id');
+this.productid=id;
+
+}
+
+previousrecord()
+{
+let previd= this.productid -1;
+this.router.navigate(['/myproduct', previd]);
+}
+
+nextrecord()
+{
+let nextid= this.productid +1;
+this.router.navigate(['/myproduct', nextid]);
+}
+}
+
+
+__________
+6)Final Steps
+http://localhost:4200/allproducts

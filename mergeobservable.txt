@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { Observable, merge,of} from 'rxjs';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit{
+  ngOnInit()
+{
+ngOnInit(){
+   const obs1 = Observable.create((observer:any) => {
+      observer.next('Mumbai')
+  });
+  
+  const obs2 = Observable.create((observer:any) => {
+      observer.next('Jaipur')
+  });
+  
+  const obs3 = merge(obs1, obs2);
+  
+  obs3.subscribe((data) => console.log(data));
+console.log("---Of Observable---");
+ const observable1 = of(1,2,3)
+      .subscribe((data1) => console.log(data1));
+ 
+ }
+}

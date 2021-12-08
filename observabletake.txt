@@ -1,0 +1,16 @@
+import { Component, OnInit } from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { take } from 'rxjs/operators';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit{
+  ngOnInit(){
+const observable1 = fromEvent(document, 'click')
+ .pipe(
+   take(2)
+ )
+  .subscribe(() => console.log('You clicked the page!'));
+}}

@@ -1,0 +1,122 @@
+Passing parameters
+PART1
+step1
+create a component for displaying all products
+create a component having the details of one employee visible at a time
+
+ng g c demo2allproducts -is -it
+ng g c demo2specificproduct -is -it
+
+____
+step 2
+in the app-routing.module
+update the routes array
+AppROuting-module
+
+const routes: Routes = 
+[
+  
+ ..
+{path:"allproducts", component:AllproductsComponent},
+{path:"myproduct/:id", component:SpecificproductComponent}
+]
+
+export const routingcomponents = [Demo1CreateComponent,Demo1DisplayallComponent,Demo2allproductsComponent,Demo2specificproductComponent]
+_______________
+
+Step 3
+Checkpoint
+http://localhost:4200/allproducts
+http://localhost:4200/myproduct/1
+___________________
+
+step 4 (for navigating for every product using code)
+allproductsComponent
+code for the click event for every button in li tag for add to cart
+in for loop
+<button (click)= "displaydetails(id)" >
+
+import {Router} from '@angular/router';
+in the constructor of the component
+
+  constructor (private _router: Router) {}
+displaydetails(prodid:any)
+{
+this._router.navigate(["myproduct"], prodid);
+}
+
+step 5 
+http://localhost:4200/allproducts
+
+______
+
+step 5
+use the parameter or consume the parameter in the Demo2specificproductComponent
+Demo2specificproductComponent.ts
+import {ActivatedRoute} from '@angular/router';
+public productid;
+constructor (private route: ActivatedRoute)
+
+ngOnInit()
+{
+
+let id= parseInt(this.route.snapshot.paramMap.get('id'));
+this.productid=id;
+
+}
+
+template: `<h2>You selected product with id {{productid}}</h2>`
+
+___________
+step 6
+Test
+_________
+
+Part 2
+step 7
+Demo2specificproductComponent
+template
+template: `<h2>You selected product with id {{productid}}</h2>
+<a (click)="previousrecord()>Previous Product</a>
+<a (click)="nextrecord()>Next Product</a>`
+___________
+
+step 8 
+update the Demo2specificproductComponent
+import {ActivatedRoute, Router} from '@angular/router';
+constructor (private route: ActivatedRoute, private router:Router)
+{
+
+}
+previousrecord()
+{
+let previd= this.productid -1;
+this.router.navigate(['/myproduct', previd]);
+}
+
+nextrecord()
+{
+let nextid= this.productid +1;
+this.router.navigate(['/myproduct', nextid]);
+}
+_________
+step 9
+
+check the component's previous and next buttons. 
+in detail click different ids and then click previous and next. 
+Observation: URL changes but UI does not change
+drawback of snapshot approach. Angular decides whether to reuse the component or make a new component
+
+_______
+step 10 
+ngOnInit()
+{
+
+//let id= parseInt(this.route.snapshot.paramMap.get('id'));
+//this.productid=id;
+this.route.paramMap.subscribe((p:ParamMap) =>
+{
+let id=parseInt(p.get('id'));
+this.productid=id;
+});
+}

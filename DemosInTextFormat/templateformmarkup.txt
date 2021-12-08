@@ -1,0 +1,71 @@
+1)create a project prj1forms
+2)create a component by the name templateform
+ng g c templateform
+3)In the app.module
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule}} from '@angular/forms';
+
+imports: [BrowserModule, FormsModule, ReactiveFormsModule];
+4)add a model object to the component
+selector= "templateform"
+model={origin:"", destination:""};
+
+
+5)add the following markup to templateform.component.html
+
+<div>
+<form (ngSubmit)="onSubmit()" #f1>
+<div>
+<label for="origin">What is the Origin</label>
+<input type="text"  id="origin" required [(ngModel)]="model.origin" name="origin" #origin ="ngModel" [ngModelOptions]="{updateOn:'change'}">
+<div [hidden]="origin.valid || origin.pristine">
+Origin required
+</div>
+
+<div>
+<label for="destination">What is the Origin</label>
+<input type="text" class="form-control" id="destination" required [(ngModel)]="model.destination" name="destination" #destination ="ngModel" [ngModelOptions]="{updateOn:'change'}">
+<div [hidden]="destination.valid || destination.pristine" class="alert alert-danger">
+Origin required
+</div>
+</div>
+<button type="submit"  class="btn btn-success">
+Submit
+</button>
+</form>
+<div *ngIf="model.origin && model.destination">
+<h2>From {{model.origin}} to  {{model.destination}}</h2>
+
+</div>
+____________________
+6
+Check if the project is executing
+ng serve
+_______-
+7
+in app.componet.html
+
+delete everything and add the following markup
+<div class="container">
+<h3>Template driven forms</h3>
+<templateform></templateform>
+</div>
+--------
+8
+execute the check the output . Verify updateOn="change"
+____
+9 
+in the component change  updateOn ="blur"
+change the values in the text box while running and click outside to see the output in template
+
+____
+10
+change updateOn="submit"
+______
+11
+to set it for every element of form remove 
+ [ngModelOptions]="{updateOn:'change'}" from every input element
+
+12
+modify the form tag as given below
+<form (ngSubmit)="onSubmit()" #f1 [ngFormOptions]="{updateOn:'blur'}">

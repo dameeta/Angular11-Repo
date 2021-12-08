@@ -1,0 +1,69 @@
+Dependency injection
+https://www.youtube.com/watch?v=OFPIGlxunL0
+dependency injection
+
+Code without DI and its drawbacks
+DI as a design pattern
+DI as a framework
+
+DI is a design pattern in which a class receives its dependencies from external sources rather than creating them itself.
+
+proble: more than 15-20 dependencies and dependencies having their own dependencies
+
+DI framework consists of an injector where all dependencies are registered. Injector is a container for managing all dependencies.
+Define a service class (employeeservice)
+Register with injector(register the service with injector)
+Declare as dependency in emplist and empdetail (employeeservice used by emplist and empdetail)
+_______________
+
+
+code that does not use DI
+
+class Engine()
+{
+constructor(){}
+}
+
+class Tyre
+{
+constructor(){}
+}
+class car
+{
+
+engine;
+tyres
+constructor()
+{
+this.engine= new Engine();
+this.tyres= new Tyres()
+}
+if the constructor of Engine changes
+class Engine
+{
+constructor(enginetype x)){}
+}
+then the car class has to be repaired. This code is not flexible 
+It is not suitable for testing either. Testing with new tyres, new engines etc not flexible. Even if code is changed what if engine and tyre have their own dependencies
+_______
+code that makes use of DI
+
+class Engine()
+{
+constructor(){}
+}
+
+class Tyre
+{
+constructor(){}
+}
+class car
+{
+
+engine;
+tyres
+constructor(engine_a, tyre_a)
+{
+this.engine= engine_a
+this.tyres= tyre_a
+}

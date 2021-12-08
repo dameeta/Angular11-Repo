@@ -1,0 +1,117 @@
+Demo on routing
+generate a project with routing option
+create components
+configure the routes
+add buttons and use directives to navigate
+
+Part 1
+In the app.module.ts
+
+import { AppRoutingModule } from './app-routing.module';
+import {routingcomponents} from './app-routing.module';
+
+imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+________
+for rendering  in app.component.html
+
+<router-outlet></router-outlet>
+
+for creating a hyperlink
+<a routerLink="/suppliers" routerLinkActive="classactive">Suppliers</a>
+  
+<a routerLink="/orders">orders</a>
+  
+____________
+ng new prj routing
+
+what routing does
+in index .html
+<base href="/">
+___
+in the routing modle
+app.routing.module.ts for configuring the different routes
+import {routes, routerModule} from '@angular/core';
+_______
+app.module.ts
+import {{AppRoutingModule}} from './app-routing.module';
+imports:
+[
+BrowserModule, AppRoutingModule]
+_______
+
+Part 2
+generate the components 
+_______
+AppROuting-module
+
+const routes: Routes = 
+[
+  
+  {path:"Create", component: CreateComponent}, 
+ {path:"displayall", component: DisplayallComponent}]
+
+export const routingcomponents = [CreateComponent,DisplayallComponent]
+NOTE: (these are referred in app module also with import. Hence now import the array routingcomponents rather than all modules in app.module.ts
+__________
+app.module.ts
+
+import {routingcomponents} from './app-routing.module';
+______
+Part 3
+Check the routes
+http://localhost:4200
+http://localhost:4200/Create
+http://localhost:4200/displayall
+_____________
+
+Note: routerLink directive
+routerLineActive directive (specifies the css classes that will be applied when the router link is active)
+___________
+Part 4
+
+Navigating to a route that is not configured
+SOlution  is to use a wild card route
+a)generate a component for unavailable
+ng g c pageunavailable -it -is
+<h3>Check the URL of your page</h3>
+________
+b)go to app-routing.module.ts
+
+const routes: Routes = 
+[
+  
+  {path:"Create", component: CreateComponent}, 
+ {path:"displayall", component: DisplayallComponent},
+ {path:"**", component: PageunavailableComponent}
+]
+
+export const routingcomponents = [CreateComponent,DisplayallComponent, PageunavailableComponent] //update this line
+
+c)Check point: http://localhost:4200
+http://localhost:4200
+http://localhost:4200/demo
+http://localhost:4200/create
+http://localhost:4200/edit
+________________
+
+Part 5 (default route problem)
+http://localhost:4200
+PathMatch property: tells the router how to match the url segments with the configured route
+PathMatch="prefix" if the path is prefix to the url direct it to the url . (baseurl considered)
+
+PathMatch="fullpath " if the path is specifies the pattern like * or '' for the fullpath (baseurl considered)
+
+const routes: Routes = 
+[
+  
+ {path:"", redirectTo:"create",pathMatch:'full' },  {path:"Create", component: CreateComponent}, 
+ {path:"displayall", component: DisplayallComponent},
+ {path:"**", component: PageunavailableComponent}
+]
+
+
+
+

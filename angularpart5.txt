@@ -1,0 +1,23 @@
+angular 5
+Interpolation
+
+template: `
+<h2>
+Welcome {{name}}
+</h2>
+<h2>{{2+2}}</h2>
+<h2>{{"Welcome"+name}}</h2>
+<h2>{{name.length}}</h2>
+<h2>{{name.toUpperCase()}}</h2>
+<h2>{{greetUser()}}</h2>
+<h2>{{siteUrl}}</h2>
+`
+
+______
+in export class
+
+public name="Angular 5"
+greetUser()
+{
+return "Hello"
+}

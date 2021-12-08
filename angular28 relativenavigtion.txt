@@ -1,0 +1,18 @@
+https://www.youtube.com/watch?v=qktmk-7Kot8
+Relative navigation
+absolute path
+
+static files in assets folder
+like
+<img src="assets/img/myimage.png">
+An absolute path begins with a /.
+__________
+router-param-master
+this._router.navigate([product.productid], {relativeTo:this._r});
+
+_______
+router-param-detail
+
+this._router.navigate(['../',{id:selectedId}, {relativeTo:this._r}]);
+if the above does not work then try
+this._router.navigate(['../', {relativeTo:this._r}]);

@@ -1,0 +1,19 @@
+Development environment
+Node
+Npm
+Angular CLI
+Text Editor VS Code
+__________
+check node installation
+node -v
+npm -v
+
+Angular CLI is a command line interface for angular
+
+npm install -g @angular/cli
+
+check
+ng -v
+if no output then add angular cli to the path variable
+
+npm update -g @angular/cli -it -is

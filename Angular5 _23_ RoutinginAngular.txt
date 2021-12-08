@@ -1,0 +1,92 @@
+https://www.youtube.com/watch?v=Nehk4tBxD4o
+22. Routing in angular
+ng new prj --routing
+
+Routing provides a mechanism to navigate between views as a user performs some actions
+
+Navigate between 2 different views using button clicks
+
+
+Steps for a routing APP
+1)Generate a project with routing option(ng new routing-demo --routing)
+2)Generate the departmentlist component and employeelist component
+3)Configure the routes for our application
+4)Add buttons and use directives to navigate to the configured routes
+
+explore the changes in the application
+step1 )in index.html in the head section <base href="/">
+
+app-routing.module.ts in the app folder
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+step file app.module.ts
+import Routing module in app.module and also include it in imports array
+
+import { Routes, RouterModule } from '@angular/router';
+imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+
+
+________
+
+step2
+create two components in the project
+ng g c suppliermaster it is  (it is for inline template and is is for inline style)
+ng g c ordermaster it is  (it is for inline template and is is for inline style)
+_______
+step3 (configure the routes in the app-.module.ts)
+method1
+const routers: Routes
+[
+{path:"suppliers", component: SuppliermasterComponent},
+{path:"orders", component: OrdermasterComponent}
+]
+make the necessary import statements for the components 
+import {OrdermasterComponent} from './ordermaster/Ordermaster.component';
+
+import {SuppliermasterComponent} from './suppliermaster/suppliermaster.component';
+
+method2
+
+app-routing.module or app module
+export const routingcomponents =[SuppliermasterComponent, OrdermasterComponent]
+
+in the appmodule
+import {routingcomponents} from './app-routing.module';
+declarations updated
+
+________
+step 4
+where to display the data
+in 
+<router-outlet></router-outlet>
+
+test
+http://localhost:4200
+http://localhost:4200/suppliers
+http://localhost:4200/orders
+___________
+step5
+in the app.component.html
+<a routerLink="path" routerLinkActive="class1 class2">suppliers</a>
+<a>orders</a>
+routerlink for path and routeractivelink for the classes required when the link is clicked
+
+<a routerLink="/suppliers" routerLinkActive="classactive">Suppliers</a>
+  <a routerLink="/orders">orders</a>
+<router-outlet></router-outlet>
+
+_______

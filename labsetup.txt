@@ -1,0 +1,16 @@
+Lab Setup
+
+a)Visual Studio Code
+b)Nodes js (latest version)
+c)latest version of Angular CLI
+d)Administrative rights for executing softwares
+e)Internet Access
+
+npm install -g @angular/cli
+
+ng new angulartrg
+
+cd angulartrg
+
+ng serve
+

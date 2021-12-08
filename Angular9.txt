@@ -1,0 +1,58 @@
+Angular 29
+Child Routes
+1)create two components
+productoverview
+productcategory
+
+ng g c productoverview -it -is
+ng g c productcategory -it -is
+_____
+2)app-routing module
+import {ProductoverviewComponent} from './productoverview/productoverview.component';
+import {ProductcategoryComponent} from './productcategory/productcategory.component';
+
+update
+Modify the constant for routes
+{
+   path:"productmaster/:id", component: RouterparamDetailComponent,
+children:
+[
+  {path:"Productoverview", component: ProductoverviewComponent},
+  
+{path:"Productcategory", component: ProductcategoryComponent},
+  
+]
+},
+
+update
+export const routingcomponents = [SuppliermasterComponent,OrdermasterComponent, PagenotfoundComponent, RouterparamMasterComponent, RouterparamDetailComponent,ProductoverviewComponent, ProductcategoryComponent ];
+________
+3)Displaying the components in using router-outlet tag in the template of productdetails component
+routeparam-detail.ts
+
+template: `<h2>Product  details for {{productid}}</h2>
+<p>
+<button (click)="productoverview()">Product Overview</button>
+<button (click)="productcategory()">Product catergory</button>
+</p>
+  <router-outlet></router-outlet>
+  <a (click)="goprevious()">Previous</a>
+  <a (click)="gonext()">Next</a>
+    
+  <div>
+<button (click)="gotoproductMaster()">Back</button>
+</div>
+
+ `
+
+_____
+productoverview()
+{
+this._router.navigate(["Productoverview"], {relativeTo:this._r});
+
+}
+productcategory()
+{
+  this._router.navigate(["Productcategory"], {relativeTo:this._r});
+}
+

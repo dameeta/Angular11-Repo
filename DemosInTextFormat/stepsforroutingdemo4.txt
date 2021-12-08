@@ -1,0 +1,60 @@
+Demo optional parameters
+step 1
+ng new routingdemos --routing
+
+step 2
+create a component
+ng g c searchcomp -is -it
+ng g c optparametercomp -is -it
+
+step 3
+in the app-routing.module.ts
+
+
+in the app.module.ts
+import { AppRoutingModule } from './app-routing.module';
+
+import {routingcomponents} from './app-routing.module';
+
+
+
+step4
+
+in app-routing.module
+
+const routes= [{path:"search", component:SearchcompComponent},
+{path:"optparameter", component:OptparametercompComponent},
+];
+
+step 5
+
+http://localhost:4200
+http://localhost:4200/search
+http://localhost:4200/optparameter
+http://localhost:4200/optprameter;city=mumbai
+_________
+step 6
+In search component add a button 
+
+
+<button (click)="navigate('mumbai', 'chennai')">Navigate</button> 
+
+constructor(private router:Router) { }
+
+navigate(c:string, s:string) {
+  this.router.navigate(['optparameter', {city: c, state:s}]);
+}
+
+step 7
+consuming the parameter in the optparametercomponent
+
+7.1)import { Router, RouterModule, Routes, ActivatedRoute } from '@angular/router';
+
+7.2)constructor(private route: ActivatedRoute,
+              private router: Router) {
+    this.route.params.subscribe(params => {
+      console.log(params);
+      console.log (params['city']);
+console.log(params['state']);
+    });
+  }

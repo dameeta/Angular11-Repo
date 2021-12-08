@@ -1,0 +1,77 @@
+Service demo
+stepsforservice_demo1_Part1
+
+1)create a service
+ng g s musicservice
+
+import { Injectable } from '@angular/core';
+
+
+@Injectable()
+export class MusicserviceService 
+{
+
+  
+constructor() 
+{ }
+
+  
+getMusicalinstruments()
+  
+{
+
+    return  [
+      {"instid":1, "instrumentname":"tabla", price:5000},
+
+      {"instid":2, "instrumentname":"harmonium", price:35000},
+
+      {"instid":3, "instrumentname":"Dholak", price:2000},
+
+      {"instid":4, "instrumentname":"casio", price:3000},
+   
+   {"instid":5, "instrumentname":"flute", price:200}
+        ];
+  }
+
+}
+______________
+stepsforservice_demo1_Part2
+
+Register the service in app.module
+
+import {MusicserviceService} from './musicservice.service'
+providers: [MusicserviceService]
+
+___________
+
+stepsforservice_demo1_Part3
+
+create a component compmusic and add use the service in the constructor
+
+<ul *ngFor="let x of musicalinstruments">
+<li>{{x.instrumentname}}</li>
+  </ul>
+`,
+ 
+ styles: []
+})
+
+export class MusicicalinstrumentsComponent implements OnInit 
+{
+ 
+ public musicalinstruments =   [];
+
+ 
+ constructor(private _musicserviceservice :MusicserviceService) {
+
+    
+this.musicalinstruments= _musicserviceservice.getMusicalinstruments();
+  
+ }
+
+ 
+ ngOnInit() {
+    
+  }
+
+}

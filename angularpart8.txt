@@ -1,0 +1,39 @@
+https://www.youtube.com/watch?v=q256X6-u9Q8
+style binding
+namaste project -->stylebinding.ts
+stylebinding.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-stylebinding',
+  template: 
+  `
+  <h2 [style.color]="'violet'">
+    Style Binding
+  </h2>
+  <h2 [style.color]="isCorrect?'green': 'red'">
+  
+  Conditional Style Binding
+  </h2>
+    <h2 [style.color]="highlightColor">value in a property</h2>
+    <h2 [ngStyle]="titleStyles">Multiple style properties using ngStyle directive</h2>
+   
+  `,
+  styles: []})
+export class StylebindingComponent implements OnInit {
+  public isCorrect =true;
+public highlightColor="orange";
+
+public titleStyles=
+{
+  color:"blue",
+  backgroundColor:"yellow",
+  fontStyle:"italic"
+}
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

@@ -1,0 +1,3 @@
+Custom directives
+Create a component useCustomDirective
+ng c g useCustomDirective -it -is

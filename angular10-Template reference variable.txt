@@ -1,0 +1,34 @@
+https://www.youtube.com/watch?v=Oo0-r_YhoJs
+
+template reference variables
+
+
+project: namaste
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-templatereferencevariables',
+  template: `
+  <h2>Template Reference Variables
+  </h2>
+  <input type="text" #city>
+  <p>
+  <button (click)="dispmsg(city.value)">Display city</button>
+
+  </p>
+  `,
+  styles: []
+})
+export class TemplatereferencevariablesComponent implements OnInit {
+  dispmsg(a)
+  {
+    console.log("Welcome to "+a);
+  }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

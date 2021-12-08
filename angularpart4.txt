@@ -1,0 +1,40 @@
+Component
+three parts
+1)Template (view and html)
+2)Class (Code, typescript, data and methods)
+3)Metadata (information and decorator)
+
+______
+to make a new component
+ng g c test
+g=generate
+c=component
+
+In the app.module file import the component and add it to the ngModule declarations array
+
+Add the tag <app-test> to app.component.html (because only one main component)
+ng serve
+or npm start
+______
+selector (3 ways)
+1)selector: "app-test"
+<app-test>
+or
+2)selector: '.app-test'  // class
+
+usage
+<div class="app-test"></div> output test works
+_______
+selector: '[app-test]'  // as an attribute
+usage
+<div app-test></div> //output test works
+__________
+
+for inline template
+templateUrl to be replaced with template: "<div>inline template</div>"
+use `` for multiple lines
+
+same for styles
+div:color:red
+
+use `` for multiple lines

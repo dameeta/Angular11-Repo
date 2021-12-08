@@ -1,0 +1,44 @@
+<h2>{{name|owercase}}</h2>
+<h2>{{name|uppercase}}</h2>
+<h2>{{name|titlecase}}</h2>
+<h2>{{name|slice:3}}</h2>  index 3 (starting from 0)
+<h2>{{name|slice:3:5}}</h2>  index 3 (starting from 3 to 5 but not 5)
+<h2>{{person|json}}</h2>
+
+______
+number pipes
+
+<h2>{{5.678|number:'1.2-3'}}</h2>  
+<h2>{{5.678|number:'3.4-5'}}</h2>   digit1.digit2-digit --- 005.6780
+
+<h2>{{5.678|number:'3.1-2'}}</h2>  005.68
+digit1=minimum of integer digits
+digit2=minimum number of decimal digits
+digit3=maximum number of decimal digits
+_____
+percent pipe
+<h2>{{0.25|percent}}</h2>
+
+
+<h2>{{0.25|currency}}</h2>
+
+<h2>{{0.25|currency}}</h2>
+
+<h2>{{0.25|currency}}</h2>
+
+<h2>{{0.25|currency:'GBP'}}</h2> great britain pounds
+<h2>{{0.25|currency:'Data':'code'}}</h2> 
+______
+Date pipes
+
+create a property
+public x= new Date()
+<h2>{{x}}</h2>
+<h2>{{x |date:'short'}}</h2>
+
+<h2>{{x |date:'shortDate'}}</h2>
+<h2>{{x |date:'shortTime'}}</h2>
+
+similarly medium, mediumDate, mediumTime
+
+similarly long, longDate, longTime

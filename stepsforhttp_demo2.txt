@@ -1,0 +1,113 @@
+Service demo
+______________
+step1
+create a json file in src/assets/data
+emp.json
+[
+{"id": 1, "fname":"Chhaya", "lname":"Shah"},
+{"id": 2, "fname":"Seema", "lname":"Iyer"},
+{"id": 3, "fname":"Mohini", "lname":"Bhambwani"},
+{"id": 4, "fname":"Sunita", "lname":"Lalwani"}
+]
+
+step2
+
+app.module
+import {HttpClientModule} from '@angular/common/http'
+imports :[BrowserModule, HttpClientModule]
+
+________
+step3
+create a service demohttpservice
+
+a)create a service
+ng g s demohttpservice
+
+import { Injectable } from '@angular/core';
+
+
+import {HttpClient} from '@angular/common/http'; ***
+@Injectable()
+export class demohttpserviceService 
+{
+
+  
+private url:string="/assets/data/emp.json";***
+constructor(private http:HttpClient) **** 
+{ }
+
+  
+****getemps()
+  
+{
+
+   
+return this.http.get(this._url);
+}
+}
+
+step 4
+Register the service in app.module
+
+import {DemohttpserviceService} from './demohttpservice.service'
+providers: [DemohttpserviceService]
+__________
+step 5 
+create an emp interface in the app folder. IEmp
+/app/emp.ts
+export interface IEmp
+{
+id:number,
+fname:string,
+age:number
+
+}
+_____
+Step 6
+come back to empservice
+a)import {IEmp} from './emp';
+import {Observable} from 'rxjs/Observable';
+
+b) modify the getemps method
+
+getemps()
+  :Observable<IEmp[]>
+{
+
+   
+return this.http.get<IEmp>[](this._url);
+}
+_____
+step 7 
+create a component displayemp
+ng g c displayemp -is -it
+
+create a component displayemp and add use the service in the constructor
+
+template:
+<ul *ngFor="let x of emps">
+<li>{{x.id}} is {{x.fname}}  {{x.lname}}</li>
+  </ul>
+`,
+ 
+ styles: []
+})
+
+export class displayempComponent implements OnInit 
+{
+ 
+ public emps =   [];
+ constructor(private _empservice :EmpserviceService) {
+ }
+
+ 
+ ngOnInit() {
+
+this._empservice.getemps()
+.subscribe(data=>this.emps=data);
+    //data arrives asynchronously from the service
+  }
+
+}
+__________
+

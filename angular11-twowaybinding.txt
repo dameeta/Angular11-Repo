@@ -1,0 +1,14 @@
+https://www.youtube.com/watch?v=DOWwWsbG1Sw&t=3s
+
+two way binding
+
+<input type="text" [(ngModel)]="name">
+{{name}} -- interpolation
+
+it will not work
+
+add forms module
+
+and also add it to import statement
+add a property to the class
+the name of the property is name

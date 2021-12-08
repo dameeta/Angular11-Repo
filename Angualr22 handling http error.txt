@@ -1,0 +1,21 @@
+https://www.youtube.com/watch?v=TmTGQiLBS5A
+Http errors in an 
+to handle errors in the observble we make use of an http catch operator
+observeservice.service.ts
+
+
+import 'rxjs/add/operator/catch'
+import 'rxjs/add/observable/throw'
+
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+
+.catch(this.errorHandler)
+
+errorHandler(error:)
+{
+return observable.throw(error.message || "server error");
+
+}
+
+
+change the name of the json file in observeservice.service.ts to mobile1.json

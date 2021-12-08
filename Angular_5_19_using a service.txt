@@ -1,0 +1,29 @@
+Using a Service
+music and musicdetails components for without a service
+________
+musicalinstruments and musicalinstrumentdetails to be used by the service musicservice.service
+________
+
+
+
+
+________
+step 2
+in app.module
+import {MusicserviceService} from './musicservice.service'
+
+ providers: [MusicserviceService],
+
+
+
+
+__________
+step 3
+ng g s employeeService
+
+
+
+_______
+Injectable decorator
+It tells angular that this service might itself have injected dependencies
+the injectable decorator is not specified for the component because @component specifies it to angular that the component is injectable

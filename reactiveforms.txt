@@ -1,0 +1,59 @@
+1)create a project prj1forms
+2)create a component by the name templateform
+ng g c reactiveform
+
+3)
+In the app.module
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule}} from '@angular/forms';
+
+imports: [BrowserModule, FormsModule, ReativeFormsModule];
+
+4)add the following to the component class
+selector= "reactiveform"
+after the class declaration add
+nameForm:FormGroup;
+import {FormGroup} from '@angular/forms/src/model' 
+change the import as below
+import {FormGroup, FormControl, Validators} from '@angular/forms' 
+
+5)in the ngOnInit
+ngOnInit()
+{
+this.nameForm=new FormGroup(
+{
+origin: new FormControl('', {validators: Validators.required, updateOn:'change'}),
+destination:new FormControl ('',{validators: Validators.required, updateOn:'change'})
+});
+}
+
+6)reactiveForm.COmponent.html
+
+<form [formGroup]="nameForm" novalidate>
+<div class="form-group">
+<label>Origin</label>
+<input class="form-control" formControlName="origin">
+</div>
+
+<div class="form-group">
+<label>Destination</label>
+<input class="form-control" formControlName="destination">
+</div>
+<button type="submit" class="btn btn-success">Submit</button>
+</form>
+<h3>from {{nameForm.value.origin}} to {{nameForm.value.destination}}</h3>
+
+7)observe the output
+in step 
+5 change from updateOn=change to updateOn='submit'
+
+________
+8)Modify the ngInit so that updateOn is at the form level and not at the control level
+ngOnInit()
+{
+this.nameForm=new FormGroup(
+{
+origin: new FormControl('', {validators: Validators.required}),
+destination:new FormControl ('',{validators: Validators.required})
+}, {updateOn:'blur'});
+}

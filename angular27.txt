@@ -1,0 +1,45 @@
+Angular 27
+Same code of angular 26 with the following changes
+
+productMaster
+
+append in the template
+<div>
+<button (click)="gotoproductMaster()">Back</button>
+</div>
+
+
+___
+gotoproductMaster()
+{
+let selectedId= this.productid ?this.productid?null;
+this.router.navigate(["/productmaster", {id:selectedId]);
+}
+_________
+test
+________
+In the product master
+import {ActivatedRoute, Router, ParamMap} from '@angular/router'
+ public productid;
+    
+constructor(private _r : ActivatedRoute, private _router:Router)  
+
+    {
+
+     
+    }
+  
+  ngOnInit() 
+{
+  
+   // let id=parseInt(this._r.snapshot.paramMap.get('id'));
+      //this.productid=id;
+      this._r.paramMap.subscribe((params:ParamMap)=>
+    
+  {
+
+    let id = parseInt(params.get('id'));
+    this.productid=id;
+    
+  
+    })

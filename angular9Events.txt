@@ -1,0 +1,47 @@
+https://www.youtube.com/watch?v=ZfIc1_oj7uM
+
+$event gives all the information about the event
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-eventbinding',
+  template: 
+  `
+<h2>Events in ANgular 5</h2>
+  <button (click)="greetings()">Greet</button>
+  <button (click)="yourgreetings($event)">Greet</button>
+  <button (click)="msg='hi'">code</button>
+<button (click)="console.log('welcome');">Console.log will not work</button>
+
+
+  {{msg}}
+  {{eventtype}}
+  `
+  ,
+  styles: []
+})
+export class EventbindingComponent implements OnInit {
+ 
+  yourgreetings(event)
+  {
+
+    console.log(event);
+    console.log("Event object");
+    this.eventtype="event example"+ event.type;
+  )
+  }
+  greetings()
+  {
+  console.log("Namaste ,  hello, hi and welcome to events in angular 5");
+  this.msg="Angular !!!!";
+
+  }
+  public msg="";
+  public eventtype="";
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

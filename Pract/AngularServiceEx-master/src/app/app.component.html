@@ -1,0 +1,23 @@
+<h1 style="text-align: center">Welcome to {{title}}!</h1>
+<h3>Service with Json file</h3>
+<h3 style="text-align: center">All EmployeesInfo here</h3>
+<hr>
+<div style="text-align: center">
+<table class="table table-striped table-hover table-bordered" style="text-align: center;">
+	<thead>
+		<tr>
+			<th>EMP ID</th>
+			<th>FIRST NAME</th>
+			<th>LAST NAME</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let emp of employeesInfo;">
+			<td>{{emp.id}}</td>
+			<td>{{emp.firstName}}</td>
+			<td>{{emp.lastName}}</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<hr>

@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'compdirectives1',
+  template: `
+  <h2>Structural Directives</h2>
+  <h2 *ngIf="true">Angular if</h2>
+   <h2 *ngIf="displayname">Angular displayname</h2>
+   <h2 *ngIf="displayname; else dispdata">  Display if display name is visible  </h2>
+  <h2 *ngIf="displayname; then thenblock; else elseblock">
+  Display if display name is visible
+  </h2>
+<ng-template #dispdata>
+<h2>Hello display this data for else part of if</h2>
+</ng-template>
+<ng-template #thenblock>
+<h2>Mumbai</h2>
+</ng-template>
+<ng-template #elseblock>
+<h2>Delhi</h2>
+</ng-template>
+  `,
+  styles: []
+})
+export class Compdirectives1Component implements OnInit {
+
+  public displayname=true;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

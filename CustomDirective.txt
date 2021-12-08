@@ -1,0 +1,67 @@
+Steps to create a custom directive
+a)ng generate directive SSDirective
+b)
+ssdirective.directive.ts
+
+@Directive({
+  selector: '[appSSDirective]'
+})
+____________
+
+import { Component, OnInit} from '@angular/core';
+import {SSDirectiveDirective} from '../ssdirective.directive';
+@Component({
+  selector: 'app-use-custom-directive',
+  template: `
+    <p appSSDirective>
+      use-custom-directive works!
+    </p>
+  `,
+  styles: []
+})
+export class UseCustomDirectiveComponent implements OnInit {
+  constructor() { }
+  ngOnInit()
+  {
+
+  
+  }
+}
+_______________
+3)app.module (verify)
+
+import { SSDirectiveDirective } from './ssdirective.directive';
+
+@NgModule({
+  declarations: [
+     UseCustomDirectiveComponent,
+     SSDirectiveDirective
+  ])
+
+4)App.Component.ts
+
+
+import { Component, OnInit} from '@angular/core';
+import {SSDirectiveDirective} from '../ssdirective.directive';
+@Component({
+  selector: 'app-use-custom-directive',
+  template: `
+    <p appSSDirective>
+      use-custom-directive works!
+    </p>
+  `,
+  styles: []
+})
+export class UseCustomDirectiveComponent implements OnInit {
+  constructor() { }
+  ngOnInit()
+  {
+
+  }
+  
+}
+__________________
+
+5)Integrate the AppCOmponent in index.html by using the tag
+
+<app-use-custom-directive></app-use-custom-directive>

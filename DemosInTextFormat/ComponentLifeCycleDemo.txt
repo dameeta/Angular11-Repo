@@ -1,0 +1,62 @@
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'compLifeCycle1',
+  template: `
+    <p>
+      Life Cycle of A Component
+    </p>
+  `,
+  styles: []
+})
+export class CompLifeCycle1Component implements OnInit {
+  constructor() { }
+  ngOnInit(): void {
+    console.log("Ng Init");
+  }
+  ngOnChanges(): void {
+    console.log("Ng On Changes");
+  
+  }
+  
+  ngDoCheck(): void {
+    console.log("Ng Do Check");
+  
+  }
+  
+  ngAfterContentInit(): void {
+
+    console.log("Ng After Content Init");
+ 
+  }
+ ngAfterViewInit(): void {
+    console.log("Ng After View Init");
+  }
+    ngAfterViewChecked(): void {
+    console.log("Ng After View Checked");
+  }
+  ngOnDestroy(): void {
+    console.log("Ng Destroy");
+  }
+  }
+
+
+________
+
+Testing the component
+Do not add this component to index.html
+Add it to another component to see its output
+
+compLifeCycle1></compLifeCycle1>
+  <hr>
+
+  <compLifeCycle1></compLifeCycle1>
+  <hr>
+  
+  <compLifeCycle1></compLifeCycle1>
+  <hr>
+  
+  <compLifeCycle1></compLifeCycle1>
+  <hr>
+  
+  <compLifeCycle1></compLifeCycle1>
+  

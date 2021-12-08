@@ -1,0 +1,18 @@
+discrepancy in attribute and property
+$0.getAttribute("value")
+"Swadhyaya Shikshan"
+$0.value
+"Swadhyaya Shikshan"
+$0.getAttribute("value")
+"Swadhyaya Shikshan"
+$0.value
+"Lata"
+Attribute and property binding
+
+attribute binding is only during initialization and works with strings
+property binding is with DOM manipulation works for all datatypes
+__________
+
+[] ->works
+bind-disabled also gives the same output
+

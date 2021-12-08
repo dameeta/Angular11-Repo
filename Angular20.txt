@@ -1,0 +1,27 @@
+https://www.youtube.com/watch?v=vj0kUzKOgGQ
+Angular 20
+
+
+Http Mechanism
+
+_____
+Observables
+A sequence of items that arrive asynchronously over time
+Http call- single item
+Single item -Http response
+____________
+
+Http , Observables and RxJS
+HttpGet response from EMpservice
+Receive the observable and cast it into an employee array
+Subscribe to the observable from emplist and empdetail
+Assing te employee array to a local variable
+
+RX Js 
+Reactive extensions for javascript
+External libary to work with observables
+
+______
+RxJS
+Reactive extensions for javascript
+External library to work with components

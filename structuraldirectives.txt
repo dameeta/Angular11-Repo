@@ -1,0 +1,109 @@
+https://www.youtube.com/watch?v=nWst87nQmZQ
+structural directives
+
+ng-if
+ng-switch
+ng-for
+
+
+ng-template tag is a container which ng-if can use to render content
+___
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-structuraldirectives',
+  template: `<h2>Structural Directives</h2>
+  <h2 *ngIf="true">Angular if</h2>
+ 
+  <h2 *ngIf="displayname">Angular displayname</h2>
+ 
+  <h2 *ngIf="displayname; else dispdata">
+  Display if display name is visible
+  </h2>
+  <h2 *ngIf="displayname; then thenblock; else elseblock">
+  Display if display name is visible
+  </h2>
+<ng-template #dispdata>
+<h2>Hello display this data for else part of if</h2>
+</ng-template>
+
+<ng-template #thenblock>
+<h2>Mumbai</h2>
+</ng-template>
+
+<ng-template #elseblock>
+<h2>Delhi</h2>
+</ng-template>
+
+  `,
+  styles: []
+})
+export class StructuraldirectivesComponent implements OnInit {
+
+  public displayname=true;
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+___
+ng-switch
+when comparison with multiple values
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-ngswitchexample',
+  template:
+   `   <h2>Ng Switch</h2>
+   <div [ngSwitch]="color">
+   <div *ngSwitchCase="'red'"><p style="background-color:red">Red</p></div>
+   <div *ngSwitchCase="'blue'"><p style="background-color:blue">Blue</div>
+   <div *ngSwitchCase="'green'"><p style="background-color:green">Green</div>
+   <div *ngSwitchDefault><p>No color</div>
+   </div>
+  `,
+  styles: []
+})export class NgswitchexampleComponent implements OnInit {
+public color="green";
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+____
+ <ul *ngFor="let x of menu; index as i">
+<ul *ngFor="let x of menu; first as f; last as l">
+<ul *ngFor="let x of menu; odd as od; even as ev">
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-ngforexample',
+  template: 
+  `
+  <ul *ngFor="let x of menu; index as i">
+<li>{{i}}{{x}}</li>
+  </ul>
+
+  <ul *ngFor="let x of menu; first as f; last as l">
+<li>{{f}}{{x}}{{l}}</li>
+  </ul>
+
+  <ul *ngFor="let x of menu; odd as od; even as ev">
+  <li>{{od}}{{x}}{{ev}}</li>
+    </ul>
+  `,
+  styles: []
+})
+export class NgforexampleComponent implements OnInit {
+
+  public menu = ["Malai Kofta", "Palak Paneer", "Rajma", "Kaali Daal", "Chole"]
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

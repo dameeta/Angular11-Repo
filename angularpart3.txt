@@ -1,0 +1,43 @@
+https://www.youtube.com/watch?v=16rQyEQtpyQ
+
+https://www.youtube.com/watch?v=mDoHtD1hI3I&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=3
+
+Angular 3
+1)make a folder
+2)go to visual studio code
+3)view --> Integrated terminal
+4)go to the folder
+5)ng new hi-world
+6) go to the folder hi-world
+7)ng serve
+7)compiled successfully from web pack
+8)http://localhost:4200
+
+_______
+module
+users module
+admin module
+Angular modules can be imported or exported
+Root module: AppModule
+each module is made of components and services
+
+example component for navigation, side bar, content
+
+module: root component . other components nested inside the root component
+Module will also have services for business logic
+each component contains HTML template and class to control the logic of the view
+Modules interact and ultimately render the view
+
+package.json: modules required for app. packages get installed with ng new and they are placed in ng node modules folder
+src folder: main.ts is the entry point 
+app folder : app.module.ts: root module
+app.component: root component
+maint.ts ->app.module-> app.component
+
+
+
+
+
+
+
+

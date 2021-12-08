@@ -1,0 +1,44 @@
+Angular 21
+https://www.youtube.com/watch?v=LmIsbzt-S_E
+
+Fetch data using Http
+Implementation
+
+Httpclient module provides a simplified API to provide http  functionality  for use in angular application
+importing the module
+this.http.get(url)
+
+demo
+components: observecomp1
+observecomp2
+observeservice
+import {HttpClient} from '@angular/common/http';
+
+app.module
+import {HttpClientModule} from '@angular/common/http';
+
+
+imports: [
+    BrowserModule,
+    HttpClientModule
+  ]
+
+No need to add it to providers class. HttpClientModule will do it for us.
+
+
+________
+observ1 and observe2
+import { ObserveserviceService } from '../observeservice.service';
+
+public mobiles = [];
+
+  constructor(private _serv: ObserveserviceService) 
+  { 
+    
+  }
+
+  ngOnInit() {
+    this._serv.getmobiles().subscribe(data=>this.mobiles=data);
+
+  }
+

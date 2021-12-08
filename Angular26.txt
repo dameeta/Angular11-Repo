@@ -1,0 +1,61 @@
+parameters with route
+Optional route parameters
+https://www.youtube.com/watch?v=gnTFkl2AF-w
+
+drawback of snapshot in productdetail component
+
+in previous and next buttons the url id changes but the view does not change
+angular reuses the component with snapshot approach and therefore ngInit is not called
+
+in the ngInit paramMap observable -->subscribe
+
+______
+same as angular 25
+except product details component
+productdetail.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router, ParamMap} from '@angular/router'
+
+@Component({
+  selector: 'app-routerparam-detail',
+  template: `<h2>Product  details for {{productid}}</h2>
+  <a (click)="goprevious()">Previous</a>
+  <a (click)="gonext()">Next</a>
+ `,
+  styles: []
+})
+export class RouterparamDetailComponent implements OnInit {
+
+  public productid;
+constructor(private _r : ActivatedRoute, private _router:Router)  
+{
+ 
+}
+ngOnInit() {
+ // let id=parseInt(this._r.snapshot.paramMap.get('id'));
+  //this.productid=id;
+  this._r.paramMap.subscribe((params:ParamMap)=>
+  {
+let id = parseInt(params.get('id'));
+this.productid=id;
+
+  })
+}
+goprevious()
+{
+  let previd= this.productid -1;
+  this._router.navigate(["/productdetail", previd]);
+}
+
+gonext()
+{
+
+  let nextid= this.productid +1;
+  this._router.navigate(["/productdetail", nextid]);
+
+}
+ 
+}
+
+

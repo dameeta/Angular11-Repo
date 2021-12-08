@@ -1,0 +1,24 @@
+Routing demos
+1)Make a new project
+2) ng g c comp1basic  -it -is
+3) ng g c comp2basic  -it -is
+4)import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {Comp1basicComponent} from './comp1basic/comp1basic.component';
+import {Comp2basicComponent} from './comp2basic/comp2basic.component';
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+**const routes: Routes = [{path: 'basic1', component:Comp1basicComponent}, {path:'basic2', component:Comp2basicComponent}];
+@NgModule({
+  imports: [RouterModule.forRoot(routes)], 
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+**export const routingcomponents =[Comp1basicComponent, Comp2basicComponent]
+
+5)app.module
+6)Check the URLS 
+http://localhost:4200/basic1
+http://localhost:4200/basic2
