@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chrset="UTF 8">
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<h1>Global Event Example</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/bootstrap.js"></script>
+<body>
+
+
+
+<div ng-app="CounterDemo">
+    <div ng-controller="countController">
+    <button ng-click="count =count +1">increase</button> 
+    <button ng-click="decrement()">decrease</button> 
+    <p> {{count + " hello "}}</p>
+ </div>
+</div>
+ <script>
+     angular.module("CounterDemo",[])
+            .controller("countController",function($scope){
+
+                $scope.count =0;
+                $scope.decrement=function(){
+                    $scope.count--;
+                };
+            })
+
+    </script>
+</body>
+</html>

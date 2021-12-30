@@ -1,0 +1,10 @@
+ng-show  to show or hide specific html element
+
+event listener directives
+ng-blur
+ng-change
+ng-click=mouse,button
+ng-copy==>text
+ng-dblclick
+ng-focus
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chrset="UTF 8">
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<h1>Ng show Example</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<div ng-app="ngdemo" ng-controller="showController">
+    <input type="button" value= "Hide" ng-click = "ButtonFunction()"/>
+    <br><div ng-hide = "IsVisible">Message</div>
+</div>
+<script type="text/javascript">
+
+var app=angular.module('ngdemo',[]);
+app.controller('showController',function($scope){
+
+    $scope.IsVisible = false ;
+    $scope.ButtonFunction=function(){
+
+        $scope.IsVisible=$scope.IsVisible=true;
+    }
+});
+
+
+</script>
+</body>
+</html>

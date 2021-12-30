@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chrset="UTF 8">
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<h1>Global Event Example</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="/bootstrap.js"></script>
+<body>
+
+    <div ng-app="demo" ng-controller="addController">
+        <h3>Enter the first number in the text box </h3>
+      <h4>Number1 :</h4>  <input ng-model ="var1" ng-keyup = "result()">
+      
+      <h3>Enter the Second number in the text box </h3>
+      <h4>Number2 :</h4>  <input ng-model ="var2" ng-keyup = "result()">
+        
+        <h4>Addition is: {{sum}}</h4>
+    </div>
+     <script type="text/javascript">
+        var app = angular.module("demo",[]);
+        app.controller("addController",function($scope)
+        {
+            $scope.result=function(){
+                var var1=Number($scope.var1);
+                var var2=Number($scope.var2);
+                $scope.sum = var1+var2;
+                return $scope.sum ; 
+            }
+        });
+    </script>
+
+</body>
+</html>

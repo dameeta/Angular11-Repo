@@ -1,0 +1,21 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="utf 8">
+    <title>HelloAngular</title>     
+</head>  
+<!--this app will be considered as ang app ng-app and the controller is performing business logic-->
+<body ng-app="app">
+    <!--accessing the controller-->
+    <!--message is variable  $scope is a global object which is used to manage the data between view and controller-->
+<h1 ng-controller="id1">{{message}}</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script>  
+    angular.module("app", []).controller("id1", function($scope) {  
+    $scope.message="Hello Angular!!" 
+    } )
+</script> 
+
+</body>
+
+</html>

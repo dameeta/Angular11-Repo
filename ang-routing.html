@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chrset="UTF 8">
+	
+</head>
+<body>
+<h1>Angular Routing Example</h1>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+
+<div class ="container">
+    <ul>
+        <li><a href="#Java"> Java Course</a></li>
+        <li><a href="#Python"> Python Course</a></li>
+        </li>
+    </ul>
+    <div ng-view></div>
+</div>
+<script>
+    var testApp=angular.module('testApp',['ngRoute']);
+    testApp.config(['$routeProvider',
+    function($routeProvider){
+        $routeProvider.
+        when('/Java',{
+            templateUrl : '/Java.html',
+            controller:'JavaController'
+        }).
+        when('/Python',{
+            templateUrl : '/Python.html',
+            controller:'PythonController'
+        });
+    }]);
+testApp.controller('JavaController',function($scope){
+    $scope.coursetopics=[
+        {Name:"Java Fundamentals",Description:"Covering all fundamentals of Java Language"},
+        {Name:"OOps",Description:"Object oriented concept with Java Language"},
+        {Name:"Collection",Description:"List,ArrayList,Map,HashMap,Tree"}
+    ]
+});
+
+testApp.controller('PythonController',function($scope){
+    $scope.coursetopics=[
+        {Name:"Python Introduction",Description:"Introduction to Python Language"},
+        {Name:"Data types in Python",Description:"Various data types in python"},
+        {Name:"Data structure",Description:"List,Set,Tuples,Dictionary,array"}
+    ]
+});
+
+</script>
+</body>
+</html>
+
