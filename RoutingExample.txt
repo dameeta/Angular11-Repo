@@ -1,0 +1,82 @@
+routing example
+Routing means navigation from one view to other view
+step1=ng  new routingexample
+step2=cd routingexample
+step3=ng generate component home
+step4=ng generate component prod_list
+============================================
+
+app.module.ts
+import { style } from '@angular/animations';
+import {Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { ProdListComponent } from './prod-list/prod-list.component';
+import { appRoutes } from './routerConfig';
+@NgModule({
+  imports: [BrowserModule,
+    RouterModule.forRoot([{path: 'home',component: HomeComponent},
+    {path: 'prod-list',component: ProdListComponent}
+  ])],
+    declarations: [
+      AppComponent,
+      HomeComponent,
+      ProdListComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+=====================================
+home.component.html
+<p>home works!</p>
+<p>{{homecomponent}}</p>
+===============================================
+home.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+homecomponent = "Inside Home component";
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+=========================================
+prod-list.component.html
+
+<p>prod-list works!</p>
+<p>{{prodlistcomponent}}</p>
+
+=============================
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-prod-list',
+  templateUrl: './prod-list.component.html',
+  styleUrls: ['./prod-list.component.css']
+})
+export class ProdListComponent implements OnInit {
+  prodlistcomponent = "Inside product list component";
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+  
+
+
+  
+ 
