@@ -1,0 +1,27 @@
+Step 1 Create a sampleAngular App
+mkdir myangapps
+cd myangapps
+Step 2 Create a angular app
+ng new componentApp
+step 3 cd componentApp
+step 4 : ng generate component greetcomponent
+open greetcomponent.ts file and add below lines
+after 
+ name: string = " ";
+
+  greet(): void {
+      alert("Hello " + this.name);
+  };
+ step 5 change the greetcomponent.html file
+<div>
+    Enter Your Name: <input type="text" value={{name}} /> <br />
+    <button (click)="greet()">Greet Me!</button>
+</div><p>greet works!</p>
+Step 6 also check app.module.ts file is having greetcomponent in declarations
+@NgModule({
+  declarations: [
+    AppComponent,
+    GreetComponent
+  ],
+step 7 ng serve
+
